@@ -46,10 +46,12 @@ export default function ServiceSection() {
           >
             <div className="card-body">
               <h2 className="card-title mx-auto text-2xl">{item.title}</h2>
-              <figure>
-                <img className="w-60" src={item.img} alt="Illustration" />
-              </figure>
-              <p className="text-gray-600 tracking-wide text-2xl">
+              <img
+                className="w-50 h-50 mx-auto"
+                src={item.img}
+                alt="Illustration"
+              />
+              <p className="text-gray-600 tracking-wide text-lg min-h-[4rem] flex items-center justify-center">
                 {item.subTitle}
               </p>
             </div>
