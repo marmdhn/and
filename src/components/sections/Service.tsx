@@ -10,24 +10,22 @@ export default function ServiceSection() {
     {
       title: "Website",
       img: "/illustration/website_illustration.svg",
-      subTitle:
-        "🚀 Online-kan bisnismu dengan website profesional & responsif.",
+      subTitle: `🚀 Online-kan bisnismu dengan<br/>website profesional & responsif.`,
     },
     {
       title: "UI/UX Design",
       img: "/illustration/ui_illustration.svg",
-      subTitle: "✨ Desain yang modern, simple, dan bikin user betah.",
+      subTitle: `✨ Desain yang modern, simple, <br/>dan bikin user betah.`,
     },
     {
       title: "Graphic Design",
       img: "/illustration/graphic_illustration.svg",
-      subTitle:
-        "🎨 Visual keren untuk poster, banner, & konten sosial mediamu.",
+      subTitle: `🎨 Visual keren untuk poster, banner, <br/>& konten sosial mediamu.`,
     },
     {
       title: "Custom",
       img: "/illustration/custom_illustration.svg",
-      subTitle: "⚡ Solusi kreatif fleksibel, sesuai kebutuhan brand kamu.",
+      subTitle: `⚡ Solusi kreatif fleksibel, <br/>sesuai kebutuhan brand kamu.`,
     },
   ];
 
@@ -51,9 +49,10 @@ export default function ServiceSection() {
                 src={item.img}
                 alt="Illustration"
               />
-              <p className="text-gray-600 tracking-wide text-lg min-h-[4rem] flex items-center justify-center">
-                {item.subTitle}
-              </p>
+              <p
+                className="text-gray-600 tracking-wide text-lg min-h-[4rem] flex items-center justify-center"
+                dangerouslySetInnerHTML={{ __html: item.subTitle }}
+              />
             </div>
           </div>
         ))}
