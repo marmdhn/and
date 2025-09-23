@@ -9,7 +9,7 @@ export default function Button({
 }) {
   return (
     <div className="bg-secondary p-1 rounded-full flex items-center gap-2 transition duration-300 hover:scale-105 hover:shadow-lg will-change-transform">
-      <button className="btn btn-primary rounded-full border-0 will-change-transform">
+      <button className="btn btn-primary font-medium rounded-full border-0 will-change-transform">
         {text}
       </button>
       {icon && <img src={rightArrow} className="w-8" alt="logo" />}
