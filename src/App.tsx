@@ -1,13 +1,12 @@
 import "./App.css";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/sections/Hero";
 
 function App() {
   return (
-    <div
-      data-theme="mytheme"
-      className="min-h-screen flex flex-col items-center justify-center bg-white p-20"
-    >
+    <div data-theme="mytheme" className="px-20">
       <Navbar />
+      <HeroSection />
     </div>
   );
 }
