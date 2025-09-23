@@ -10,7 +10,7 @@ export default function HeroSection() {
       <motion.img
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
         src="/ornaments/ornament-1.svg"
         alt="hero"
         className="ms-auto"
@@ -20,7 +20,7 @@ export default function HeroSection() {
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           className="text-5xl font-bold text-primary"
         >
           Design. Develop. Create. And More.
@@ -28,7 +28,7 @@ export default function HeroSection() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
           className="text-center w-3/4"
         >
           Dari pembuatan website, desain UI/UX, hingga editing foto & video.
@@ -38,16 +38,16 @@ export default function HeroSection() {
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 1.5, ease: "easeOut" }}
         >
           <Button text="🚀  Mulai Sekarang" />
         </motion.div>
       </div>
 
       <motion.img
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
         src="/ornaments/ornament-2.svg"
         alt="hero"
         className="me-auto"
