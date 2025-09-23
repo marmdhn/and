@@ -1,9 +1,15 @@
 import andLogo from "/logo.svg";
 import Button from "./Button";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   return (
-    <div className="navbar ">
+    <motion.div
+      initial={{ opacity: 0, y: -80 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="navbar"
+    >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,6 +68,6 @@ export default function Navbar() {
         </ul>
         <Button text="Get Started" />
       </div>
-    </div>
+    </motion.div>
   );
 }
