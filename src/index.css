@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {themes: light --default;}
 
 [data-theme="mytheme"] {
-    --color-primary: #1eaf20;
-    --color-secondary: #9333ea;
+    --color-primary: #3D5B4B;
+    --color-secondary: #FFAA00;
+}
+
+body{
+    @apply font-[poppins];
 }
