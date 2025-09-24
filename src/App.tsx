@@ -1,15 +1,25 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/landingPage";
+import KataKopiPage from "./pages/kataKopi";
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/sections/Hero";
-import ServiceSection from "./components/sections/Service";
+import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
   return (
-    <div data-theme="mytheme" className="px-20">
-      <Navbar />
-      <HeroSection />
-      <ServiceSection />
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div data-theme="andtheme" className="px-20">
+            <Navbar />
+            <LandingPage />
+            <Footer />
+          </div>
+        }
+      />
+      <Route path="/kataKopi" element={<KataKopiPage />} />
+    </Routes>
   );
 }
 
