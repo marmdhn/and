@@ -9,6 +9,21 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasShadow, setHasShadow] = useState<boolean>(false);
 
+  const containerNavbarAnimate = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemNavbarAnimate = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -86,29 +101,36 @@ export default function Navbar() {
           <img src={andLogo} className="w-24" alt="logo" />
         </button>
       </div>
-      <div className="navbar-end hidden lg:flex">
+      <motion.div
+        variants={containerNavbarAnimate}
+        initial="hidden"
+        animate="visible"
+        className="navbar-end hidden lg:flex"
+      >
         <ul className="menu menu-horizontal px-1 text-primary">
-          <li>
+          <motion.li variants={itemNavbarAnimate}>
             <button onClick={() => scrollToSection("about")}>About Us</button>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={itemNavbarAnimate}>
             <button onClick={() => scrollToSection("service section")}>
               Services
             </button>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={itemNavbarAnimate}>
             <button onClick={() => scrollToSection("portfolio section")}>
               Portfolio
             </button>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={itemNavbarAnimate}>
             <button onClick={() => scrollToSection("service section")}>
               Pricing
             </button>
-          </li>
+          </motion.li>
         </ul>
-        <Button text="Get Started" />
-      </div>
+        <motion.div variants={itemNavbarAnimate}>
+          <Button text="Get Started" />
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }
