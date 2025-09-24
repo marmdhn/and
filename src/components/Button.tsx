@@ -1,4 +1,4 @@
-import rightArrow from "/icons/right_arrow.svg";
+import { FaCircleArrowRight } from "react-icons/fa6";
 
 export default function Button({
   text,
@@ -8,11 +8,11 @@ export default function Button({
   icon?: boolean;
 }) {
   return (
-    <div className="bg-secondary p-1 rounded-full flex items-center gap-2 transition duration-300 hover:scale-105 hover:shadow-lg will-change-transform">
+    <div className="bg-secondary p-1 rounded-full flex items-center gap-1 button-hover">
       <button className="btn btn-primary font-medium rounded-full border-0 will-change-transform">
         {text}
       </button>
-      {icon && <img src={rightArrow} className="w-8" alt="logo" />}
+      {icon && <FaCircleArrowRight size="28" className="text-white " />}
     </div>
   );
 }
