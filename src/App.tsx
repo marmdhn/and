@@ -11,7 +11,7 @@ function App() {
       <Route
         path="/"
         element={
-          <div data-theme="andtheme" className="px-20">
+          <div data-theme="andtheme">
             <Navbar />
             <LandingPage />
             <Footer />
