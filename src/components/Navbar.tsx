@@ -2,6 +2,7 @@ import andLogo from "/logo.svg";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { scrollToSection } from "../helpers/scrollToSection";
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
@@ -61,36 +62,49 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>About Us</a>
+              <button onClick={() => scrollToSection("about")}>About Us</button>
             </li>
             <li>
-              <a>Services</a>
+              <button onClick={() => scrollToSection("service section")}>
+                Services
+              </button>
             </li>
             <li>
-              <a>Portfolio</a>
+              <button onClick={() => scrollToSection("portfolio section")}>
+                Portfolio
+              </button>
             </li>
             <li>
-              <a>Pricing</a>
+              <button>Pricing</button>
             </li>
           </ul>
         </div>
-        <a className="text-xl">
+        <button
+          className="text-xl cursor-pointer"
+          onClick={() => scrollToSection("hero section")}
+        >
           <img src={andLogo} className="w-24" alt="logo" />
-        </a>
+        </button>
       </div>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-primary">
           <li>
-            <a>About Us</a>
+            <button onClick={() => scrollToSection("about")}>About Us</button>
           </li>
           <li>
-            <a>Services</a>
+            <button onClick={() => scrollToSection("service section")}>
+              Services
+            </button>
           </li>
           <li>
-            <a>Portfolio</a>
+            <button onClick={() => scrollToSection("portfolio section")}>
+              Portfolio
+            </button>
           </li>
           <li>
-            <a>Pricing</a>
+            <button onClick={() => scrollToSection("service section")}>
+              Pricing
+            </button>
           </li>
         </ul>
         <Button text="Get Started" />
