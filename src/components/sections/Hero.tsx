@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section
       id="Hero section"
-      className="py-10 min-h-[calc(100vh-120px)] flex flex-col gap-16 justify-center items-center relative"
+      className="py-10 min-h-[calc(100vh+100px)] flex flex-col gap-16 justify-center items-center relative"
     >
       <motion.img
         initial={{ opacity: 0, y: -30 }}
@@ -21,7 +21,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          className="text-title"
+          className=" text-5xl font-bold text-primary"
         >
           Design. Develop. Create. And More.
         </motion.h1>
