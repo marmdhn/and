@@ -6,7 +6,7 @@ import CtaSection from "../components/sections/Cta";
 
 function LandingPage() {
   return (
-    <>
+    <div className="px-20">
       <HeroSection />
       <div className="px-20">
         <ServiceSection />
@@ -14,7 +14,7 @@ function LandingPage() {
         <PortfolioSection />
         <CtaSection />
       </div>
-    </>
+    </div>
   );
 }
 
