@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @plugin "daisyui" {themes: light --default;}
 
-[data-theme="mytheme"] {
+[data-theme="andtheme"] {
     --color-primary: #3D5B4B;
     --color-secondary: #FFAA00;
 }
@@ -12,7 +12,7 @@ body{
 }
 
 .text-title{
-    @apply text-5xl font-bold text-primary;
+    @apply text-3xl font-bold text-primary;
 }
 
 .text-gray{
@@ -21,4 +21,16 @@ body{
 
 .card-title{
     @apply text-primary;
+}
+
+.section{
+    @apply py-20 flex flex-col gap-10;
+}
+
+.card{
+    @apply bg-[#F4F4F4] shadow-lg shadow-primary/50;
+}
+
+.button-hover{
+    @apply transition duration-300 hover:scale-105 hover:shadow-lg will-change-transform cursor-pointer;
 }
