@@ -1,14 +1,41 @@
 import andLogo from "/logo.svg";
 import Button from "./Button";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hasShadow, setHasShadow] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > 50) {
+        setHasShadow(true);
+      } else {
+        setHasShadow(false);
+      }
+
+      if (currentScrollY > lastScrollY) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: -80 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="navbar"
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: hidden ? -130 : 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`navbar pt-5 fixed top-0 left-0 w-full bg-base-100 z-50 ${hasShadow ? "shadow-md" : "shadow-none"} px-20`}
     >
       <div className="navbar-start">
         <div className="dropdown">
