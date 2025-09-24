@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import Button from "../Button";
+import { scrollToSection } from "../../helpers/scrollToSection";
 
 export default function HeroSection() {
   return (
     <section
-      id="Hero section"
+      id="hero section"
       className="py-10 min-h-[calc(100vh+100px)] flex flex-col gap-16 justify-center items-center relative"
     >
       <motion.img
@@ -40,7 +41,10 @@ export default function HeroSection() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.5, ease: "easeOut" }}
         >
-          <Button text="🚀  Mulai Sekarang" />
+          <Button
+            onClick={() => scrollToSection("service section")}
+            text="🚀  Mulai Sekarang"
+          />
         </motion.div>
       </div>
 
