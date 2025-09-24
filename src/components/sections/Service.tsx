@@ -30,18 +30,15 @@ export default function ServiceSection() {
   ];
 
   return (
-    <section id="service section" className="py-10 min-h-screen ">
+    <section id="service section" className="section">
       <div className="flex items-center justify-between">
         <h1 className="text-title">🛠️ Services We Provide</h1>
         <Button text="View Detail Services" icon={true} />
       </div>
 
-      <div className="px-20 grid grid-cols-1 md:grid-cols-2 gap-15 justify-center mt-10">
+      <div className="px-20 grid grid-cols-1 md:grid-cols-2 gap-15 justify-center">
         {serviceData.map((item, index) => (
-          <div
-            key={index}
-            className="card bg-[#F4F4F4] shadow-lg shadow-primary/50 text-center"
-          >
+          <div key={index} className="card text-center">
             <div className="card-body">
               <h2 className="card-title mx-auto text-2xl">{item.title}</h2>
               <img
@@ -50,7 +47,7 @@ export default function ServiceSection() {
                 alt="Illustration"
               />
               <p
-                className="text-gray-600 tracking-wide text-lg min-h-[4rem] flex items-center justify-center"
+                className="text-gray tracking-wide text-lg flex items-center justify-center"
                 dangerouslySetInnerHTML={{ __html: item.subTitle }}
               />
             </div>
