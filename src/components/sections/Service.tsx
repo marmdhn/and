@@ -1,4 +1,5 @@
 import Button from "../Button";
+import { useRouteHelper } from "../../hooks/useRouteHelper";
 
 interface Service {
   title: string;
@@ -6,6 +7,8 @@ interface Service {
   subTitle: string;
 }
 export default function ServiceSection() {
+  const { handleDirectRoute } = useRouteHelper();
+
   const serviceData: Service[] = [
     {
       title: "Website",
@@ -33,7 +36,11 @@ export default function ServiceSection() {
     <section id="service section" className="section">
       <div className="flex items-center justify-between">
         <h1 className="text-title">🛠️ Services We Provide</h1>
-        <Button text="View Detail Services" icon={true} />
+        <Button
+          text="View Detail Services"
+          icon={true}
+          onClick={() => handleDirectRoute("services")}
+        />
       </div>
 
       <div className="px-20 grid grid-cols-1 md:grid-cols-2 gap-15 justify-center">
