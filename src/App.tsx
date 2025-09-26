@@ -1,24 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/landingPage";
-import KataKopiPage from "./pages/kataKopi";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { routes } from "./routes/routesConfig";
+import Layout from "./components/Layout";
 import "./App.css";
 
 function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <div data-theme="andtheme">
-            <Navbar />
-            <LandingPage />
-            <Footer />
-          </div>
-        }
-      />
-      <Route path="/kataKopi" element={<KataKopiPage />} />
+      {routes.map(({ path, element, useDefaultLayout }) => (
+        <Route
+          key={path}
+          path={path}
+          element={useDefaultLayout ? <Layout>{element}</Layout> : element}
+        />
+      ))}
     </Routes>
   );
 }
