@@ -1,39 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-
-interface tabs {
-  title: string;
-  text1: string;
-  highlight: string;
-  text2: string;
-}
-
-const tabs: tabs[] = [
-  {
-    title: "Website",
-    text1: "Kami membantu membangun website yang",
-    highlight: "profesional, responsif, cepat diakses, dan SEO-friendly",
-    text2: "sehingga bisnis atau personal brand-mu terlihat lebih kredibel.",
-  },
-  {
-    title: "UI/UX Design",
-    text1: "Kami membantu membangun website yang",
-    highlight: "profesional, responsif, cepat diakses, dan SEO-friendly",
-    text2: "sehingga bisnis atau personal brand-mu terlihat lebih kredibel.",
-  },
-  {
-    title: "Graphic Design",
-    text1: "Kami membantu membangun website yang",
-    highlight: "profesional, responsif, cepat diakses, dan SEO-friendly",
-    text2: "sehingga bisnis atau personal brand-mu terlihat lebih kredibel.",
-  },
-  {
-    title: "Custom",
-    text1: "Kami membantu membangun website yang",
-    highlight: "profesional, responsif, cepat diakses, dan SEO-friendly",
-    text2: "sehingga bisnis atau personal brand-mu terlihat lebih kredibel.",
-  },
-];
+import { motion, AnimatePresence } from "framer-motion";
+import { ITabs, tabs } from "../data/services";
 
 export default function ServiceDetailPage() {
   const [active, setActive] = useState("Website");
@@ -43,6 +10,8 @@ export default function ServiceDetailPage() {
   });
 
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const activeTab: ITabs = tabs.find((tab) => tab.title === active);
 
   useEffect(() => {
     const activeIndex = tabs.findIndex((tab) => tab.title === active);
@@ -56,7 +25,7 @@ export default function ServiceDetailPage() {
   }, [active]);
 
   return (
-    <section id="service detail" className="page-section mt-48">
+    <section id="service detail" className="page-section py-48">
       <div className="flex flex-col items-center justify-center gap-5">
         <h1 className="text-5xl text-primary font-bold">
           🛠️ Services We Provide
@@ -88,59 +57,98 @@ export default function ServiceDetailPage() {
         ))}
       </div>
 
-      <div className="text-center text-lg">
-        {tabs.map(
-          (tab) =>
-            active === tab.title && (
-              <div
-                key={tab.title}
-                className="flex flex-col items-center justify-center gap-5"
-              >
-                <h1 className="text-4xl font-bold text-primary">{tab.title}</h1>
-                <div className="flex flex-col items-center justify-center gap-2 text-lg text-gray-500">
-                  <span className="text-gray">{tab.text1}</span>
-                  <span className="bg-primary text-white font-bold px-4 py-2 rounded-full">
-                    {tab.highlight}
-                  </span>
-                  <span className="text-gray">{tab.text2}</span>
-                </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab.title + "-header"}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+          className="text-center text-lg max-w-6xl"
+        >
+          {activeTab && (
+            <div className="flex flex-col items-center justify-center gap-5">
+              <h1 className="text-4xl font-bold text-primary">
+                {activeTab.title}
+              </h1>
+              <div className="flex flex-col items-center justify-center gap-2 text-lg text-gray-500">
+                <span className="text-gray">{activeTab.text1}</span>
+                <span className="bg-primary text-white font-bold px-4 py-2 rounded-full">
+                  {activeTab.highlight}
+                </span>
+                <span className="text-gray">{activeTab.text2}</span>
               </div>
-            ),
-        )}
-      </div>
+            </div>
+          )}
+        </motion.div>
 
-      <div className="join join-vertical bg-base-100 w-5xl shadow-lg">
-        <div className="collapse collapse-arrow join-item border-base-300 border">
-          <input type="radio" name="my-accordion-4" defaultChecked />
-          <div className="collapse-title font-semibold">
-            How do I create an account?
-          </div>
-          <div className="collapse-content text-sm">
-            Click the "Sign Up" button in the top right corner and follow the
-            registration process.
-          </div>
-        </div>
-        <div className="collapse collapse-arrow join-item border-base-300 border">
-          <input type="radio" name="my-accordion-4" />
-          <div className="collapse-title font-semibold">
-            I forgot my password. What should I do?
-          </div>
-          <div className="collapse-content text-sm">
-            Click on "Forgot Password" on the login page and follow the
-            instructions sent to your email.
-          </div>
-        </div>
-        <div className="collapse collapse-arrow join-item border-base-300 border">
-          <input type="radio" name="my-accordion-4" />
-          <div className="collapse-title font-semibold">
-            How do I update my profile information?
-          </div>
-          <div className="collapse-content text-sm">
-            Go to "My Account" settings and select "Edit Profile" to make
-            changes.
-          </div>
-        </div>
-      </div>
+        <motion.div
+          key={activeTab.title + "-accordion"}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="join join-vertical bg-base-100 w-5xl shadow-lg"
+        >
+          {activeTab && (
+            <div className="join join-vertical bg-base-100 w-5xl shadow-lg">
+              {activeTab.services.map((service, index: number) => (
+                <div
+                  key={index}
+                  className="collapse collapse-arrow join-item border-base-300 border"
+                >
+                  <input
+                    type="radio"
+                    name="my-accordion-4"
+                    defaultChecked={index === 0}
+                  />
+                  <div className="collapse-title font-medium">
+                    {service.title}
+                  </div>
+
+                  <div className="collapse-content text-sm text-gray">
+                    <div
+                      className={`flex justify-between items-center ${service.portfolio && "mb-4"}`}
+                    >
+                      <p>{service.description}</p>
+                      {service.hasPriceList && (
+                        <button className="ms-2 btn btn-primary rounded-full py-0">
+                          Price List
+                        </button>
+                      )}
+                    </div>
+                    {service.portfolio && service.portfolio.length > 0 && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {service.portfolio.map((portfolio, index: number) => (
+                          <div
+                            key={index}
+                            className="card bg-base-100 shadow-sm"
+                          >
+                            <figure>
+                              <img src={portfolio.coverUrl} alt="cover" />
+                            </figure>
+                            <div className="card-body">
+                              <h2 className="card-title">
+                                {portfolio.title}
+                                {portfolio.isNew && (
+                                  <div className="badge badge-secondary">
+                                    NEW
+                                  </div>
+                                )}
+                              </h2>
+                              <p>{portfolio.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.div>
+      </AnimatePresence>
     </section>
   );
 }
