@@ -5,6 +5,11 @@ export const useRouteHelper = () => {
 
   const handleDirectRoute = (route: string) => {
     navigate(route);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return { handleDirectRoute };
