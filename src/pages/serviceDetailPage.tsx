@@ -56,7 +56,7 @@ export default function ServiceDetailPage() {
   }, [active]);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center gap-20 px-40 mt-48">
+    <section id="service detail" className="page-section mt-48">
       <div className="flex flex-col items-center justify-center gap-5">
         <h1 className="text-5xl text-primary font-bold">
           🛠️ Services We Provide
@@ -67,6 +67,7 @@ export default function ServiceDetailPage() {
       <div className="w-5xl relative flex items-center justify-center bg-secondary p-2 rounded-full">
         <motion.div
           className="absolute top-2 bottom-2 rounded-full bg-primary"
+          initial={{ left: 0, width: 0 }}
           animate={pillStyle}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         />
