@@ -2,9 +2,13 @@ import andLogo from "/logo.svg";
 import Button from "./Button";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { scrollToSection } from "../helpers/scrollToSection";
+import { useScrollHelper } from "../hooks/useScrollHelper";
+import { useRouteHelper } from "../hooks/useRouteHelper";
 
 export default function Navbar() {
+  const { scrollToSection } = useScrollHelper();
+  const { handleDirectRoute } = useRouteHelper();
+
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasShadow, setHasShadow] = useState<boolean>(false);
@@ -77,7 +81,9 @@ export default function Navbar() {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <button onClick={() => scrollToSection("about")}>About Us</button>
+              <button onClick={() => handleDirectRoute("/about")}>
+                About Us
+              </button>
             </li>
             <li>
               <button onClick={() => scrollToSection("service section")}>
@@ -109,7 +115,9 @@ export default function Navbar() {
       >
         <ul className="menu menu-horizontal px-1 text-primary">
           <motion.li variants={itemNavbarAnimate}>
-            <button onClick={() => scrollToSection("about")}>About Us</button>
+            <button onClick={() => handleDirectRoute("/about")}>
+              About Us
+            </button>
           </motion.li>
           <motion.li variants={itemNavbarAnimate}>
             <button onClick={() => scrollToSection("service section")}>
