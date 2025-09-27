@@ -4,14 +4,29 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useScrollHelper } from "../hooks/useScrollHelper";
 import { useRouteHelper } from "../hooks/useRouteHelper";
+import { useActiveSection } from "../hooks/useActiveSection";
+import { useActivePage } from "../hooks/useActivePage";
 
 export default function Navbar() {
   const { scrollToSection } = useScrollHelper();
   const { handleDirectRoute } = useRouteHelper();
 
+  const activeSection = useActiveSection([
+    "hero section",
+    "service section",
+    "portfolio section",
+  ]);
+
+  const activePage = useActivePage();
+
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [hasShadow, setHasShadow] = useState<boolean>(false);
+
+  const isActive = (id?: string, path?: string) => {
+    if (activePage !== "/") return activePage === path;
+    return activeSection === id;
+  };
 
   const containerNavbarAnimate = {
     hidden: { opacity: 0 },
@@ -113,24 +128,52 @@ export default function Navbar() {
         animate="visible"
         className="navbar-end hidden lg:flex"
       >
-        <ul className="menu menu-horizontal px-1 text-primary">
+        <ul className="menu menu-horizontal px-1 text-primary [&>li>*]:!bg-transparent [&>li>*]:!text-primary">
           <motion.li variants={itemNavbarAnimate}>
-            <button onClick={() => handleDirectRoute("/about")}>
+            <button
+              className={`${
+                isActive(undefined, "/about")
+                  ? "navbar-item-active"
+                  : "navbar-item-hover"
+              }`}
+              onClick={() => handleDirectRoute("/about")}
+            >
               About Us
             </button>
           </motion.li>
           <motion.li variants={itemNavbarAnimate}>
-            <button onClick={() => scrollToSection("service section")}>
+            <button
+              className={`${
+                isActive("service section")
+                  ? "navbar-item-active"
+                  : "navbar-item-hover"
+              }`}
+              onClick={() => scrollToSection("service section")}
+            >
               Services
             </button>
           </motion.li>
           <motion.li variants={itemNavbarAnimate}>
-            <button onClick={() => scrollToSection("portfolio section")}>
+            <button
+              className={`${
+                isActive("portfolio section")
+                  ? "navbar-item-active"
+                  : "navbar-item-hover"
+              }`}
+              onClick={() => scrollToSection("portfolio section")}
+            >
               Portfolio
             </button>
           </motion.li>
           <motion.li variants={itemNavbarAnimate}>
-            <button onClick={() => scrollToSection("service section")}>
+            <button
+              className={`${
+                isActive(undefined, "/pricing")
+                  ? "navbar-item-active"
+                  : "navbar-item-hover"
+              }`}
+              onClick={() => handleDirectRoute("pricing")}
+            >
               Pricing
             </button>
           </motion.li>
