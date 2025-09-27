@@ -11,7 +11,7 @@ export default function Button({ text, icon = false, onClick }: ButtonProps) {
     <div className="bg-secondary p-1 rounded-full flex items-center gap-1 button-hover">
       <button
         onClick={onClick}
-        className="btn btn-primary font-medium rounded-full border-0 will-change-transform w-full"
+        className="btn btn-primary font-medium rounded-full border-0 will-change-transform flex-1"
       >
         {text}
       </button>
