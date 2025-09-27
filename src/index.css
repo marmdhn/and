@@ -12,7 +12,7 @@ body{
 }
 
 .text-title{
-    @apply text-3xl font-bold text-primary;
+    @apply font-bold text-primary;
 }
 
 .text-gray{
@@ -27,8 +27,12 @@ body{
     @apply py-20 flex flex-col gap-10;
 }
 
+.page-section{
+    @apply min-h-screen flex flex-col items-center justify-center gap-20 px-40;
+}
+
 .card{
-    @apply bg-[#F4F4F4] shadow-lg shadow-primary/50;
+    @apply bg-[#F4F4F4] shadow-sm shadow-primary/50;
 }
 
 .button-hover{
