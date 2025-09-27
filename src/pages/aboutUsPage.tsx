@@ -1,5 +1,6 @@
 import Button from "../components/Button";
 import FormInput from "../components/FormInput";
+import { FaPhone } from "react-icons/fa6";
 
 export default function AboutUsPage() {
   return (
@@ -40,7 +41,9 @@ export default function AboutUsPage() {
       <div className="card w-full">
         <div className="card-body px-10">
           <div className="flex justify-center items-center gap-16">
-            <div className="w-1/3 text-title text-5xl">📞 Contact Us</div>
+            <div className="w-1/3 text-title text-5xl flex gap-4">
+              <FaPhone /> Contact Us
+            </div>
             <fieldset className="fieldset w-2/3 gap-5">
               <FormInput label="Name" type="email" placeholder="Name" />
               <FormInput label="Email" type="email" placeholder="Email" />
