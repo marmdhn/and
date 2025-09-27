@@ -2,6 +2,7 @@ import LandingPage from "../pages/landingPage";
 import ServiceDetailPage from "../pages/serviceDetailPage";
 import KataKopiPage from "../pages/example/kataKopi";
 import { ReactNode } from "react";
+import AboutUsPage from "../pages/aboutUsPage";
 
 export interface RouteConfig {
   path: string;
@@ -18,6 +19,11 @@ export const routes: RouteConfig[] = [
   {
     path: "/services",
     element: <ServiceDetailPage />,
+    useDefaultLayout: true,
+  },
+  {
+    path: "/about",
+    element: <AboutUsPage />,
     useDefaultLayout: true,
   },
   {
