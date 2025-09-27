@@ -29,7 +29,7 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio section" className="section">
       <div className="flex items-center justify-between">
-        <h1 className="text-title">🎨 Our Portfolio</h1>
+        <h1 className="text-title text-3xl">🎨 Our Portfolio</h1>
         <Button text="View All" icon={true} />
       </div>
 
@@ -43,7 +43,7 @@ export default function PortfolioSection() {
             <div
               className={`flex flex-col justify-center ${index % 2 === 0 ? "items-end" : "items-start"} gap-2 w-1/2`}
             >
-              <h1 className="text-title">{item.title}</h1>
+              <h1 className="text-title text-3xl">{item.title}</h1>
               <div className="flex gap-2">
                 {item.categories.map((item, index) => (
                   <span key={index} className="badge badge-primary">

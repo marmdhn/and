@@ -35,7 +35,7 @@ export default function ServiceSection() {
   return (
     <section id="service section" className="section">
       <div className="flex items-center justify-between">
-        <h1 className="text-title">🛠️ Services We Provide</h1>
+        <h1 className="text-title text-3xl">🛠️ Services We Provide</h1>
         <Button
           text="View Detail Services"
           icon={true}

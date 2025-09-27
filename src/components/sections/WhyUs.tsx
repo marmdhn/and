@@ -25,7 +25,7 @@ export default function WhyUsSection() {
   return (
     <section id="why us section" className="section">
       <div className="mx-auto">
-        <h1 className="text-title">🤝 Why Us?</h1>
+        <h1 className="text-title text-3xl">🤝 Why Us?</h1>
       </div>
 
       <div className="flex w-full flex-col lg:flex-row">

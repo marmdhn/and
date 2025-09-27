@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import Button from "../Button";
-import { scrollToSection } from "../../helpers/scrollToSection";
+import { useScrollHelper } from "../../hooks/useScrollHelper";
 
 export default function HeroSection() {
+  const { scrollToSection } = useScrollHelper();
+
   return (
     <section
       id="hero section"
@@ -22,7 +24,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          className=" text-5xl font-bold text-primary"
+          className="text-title text-5xl"
         >
           Design. Develop. Create. And More.
         </motion.h1>
