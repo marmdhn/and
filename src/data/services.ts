@@ -48,6 +48,12 @@ export const tabs: ITabs[] = [
         hasPriceList: false,
       },
       {
+        title: "Invitation Website",
+        description:
+          "👉 Undangan digital modern untuk wedding, birthday, atau event spesial dengan desain interaktif & shareable.",
+        hasPriceList: true,
+      },
+      {
         title: "Company Profile",
         description:
           "👉 Tampilkan profil bisnis, visi misi, dan layananmu agar terlihat profesional & kredibel di mata klien.",
@@ -66,10 +72,10 @@ export const tabs: ITabs[] = [
         hasPriceList: false,
       },
       {
-        title: "Invitation Website",
+        title: "Dashboard",
         description:
-          "👉 Undangan digital modern untuk wedding, birthday, atau event spesial dengan desain interaktif & shareable.",
-        hasPriceList: true,
+          "👉 Desain dashboard interaktif untuk sales, project management, sekolah/kampus, HR, accounting, marketing, hingga healthcare.",
+        hasPriceList: false,
       },
     ],
   },
@@ -81,12 +87,6 @@ export const tabs: ITabs[] = [
     text2:
       "Desain disusun agar pengguna mudah bernavigasi, lebih engage, dan bisnismu makin optimal.",
     services: [
-      {
-        title: "Dashboard",
-        description:
-          "👉 Desain dashboard interaktif untuk sales, project management, sekolah/kampus, HR, accounting, marketing, hingga healthcare.",
-        hasPriceList: false,
-      },
       {
         title: "Mobile App Design",
         description:
