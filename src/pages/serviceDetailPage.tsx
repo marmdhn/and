@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ITabs, tabs } from "../data/services";
+import Button from "../components/Button";
 
 export default function ServiceDetailPage() {
   const [active, setActive] = useState("Website");
@@ -112,9 +113,9 @@ export default function ServiceDetailPage() {
                     >
                       <p>{service.description}</p>
                       {service.hasPriceList && (
-                        <button className="ms-2 btn btn-primary rounded-full py-0">
-                          Price List
-                        </button>
+                        <div>
+                          <Button text="Price List" />
+                        </div>
                       )}
                     </div>
                     {service.portfolio && service.portfolio.length > 0 && (
