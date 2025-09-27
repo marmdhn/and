@@ -38,3 +38,12 @@ body{
 .button-hover{
     @apply transition duration-300 hover:scale-105 hover:shadow-lg will-change-transform cursor-pointer;
 }
+
+.navbar-item-hover{
+    @apply relative after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-full
+
+}
+
+.navbar-item-active{
+    @apply text-primary font-semibold relative after:content-[''] after:absolute after:bottom-0 after:h-[2px] after:w-full after:bg-primary transition-all duration-300 ease-in-out will-change-transform
+}
